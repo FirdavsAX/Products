@@ -15,7 +15,7 @@ namespace VazifaOOP2
             Product product3 = new Product(12000,"Pepsi");
             product3.DisplayInfo();
 
-            Product product4 = new Product(40000,"Hobbit",17,"Kitoblar");
+            Product product4 = new Product(40000,"Hobbit",16,"Kitoblar");
             product4.DisplayInfo();
 
             decimal totalSum = CalculateTotal(product1, product2, product3, product4);
