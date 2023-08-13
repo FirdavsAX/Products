@@ -6,73 +6,70 @@ namespace VazifaOOP2
     {
         static void Main(string[] args)
         {
-            Product product1 = new Product();
-            product1.DisplayInfo();
-             
-            Product product2 = new Product(5000,"Orbit");
-            product2.DisplayInfo(); 
+            Car car1 = new Car(12000,"Matiz","Chevrolet");
 
-            Product product3 = new Product(12000,"Pepsi");
-            product3.DisplayInfo();
+            decimal price = car1.CalculatePrice();
+           
+            car1.DisplayInfo();
+            Console.WriteLine("Calculated price : " + price);
 
-            Product product4 = new Product(40000,"Hobbit",16,"Kitoblar");
-            product4.DisplayInfo();
 
-            decimal totalSum = CalculateTotal(product1, product2, product3, product4);
+            Ferrari ferrari1 = new Ferrari(12_000_000,"new model","ferrari");
+            
+            price = car1.CalculatePrice();
 
-            Console.WriteLine("Umumiy to'lov summasi : " + totalSum);
+            Console.WriteLine("Calculated price : " + price);
 
-            Console.ReadKey();
-        }
-        public static decimal CalculateTotal(params Product[] allProducts)
-        {
-            decimal totalSum = 0;
+            ferrari1.DisplayInfo();
 
-            foreach(var product in allProducts)
-            {
-                totalSum += product.Price;
-            }
+            
 
-            return totalSum;
+
         }
 
     }
-
-    class Product
+    class Car
     {
-        public decimal Price { get; set;}
-        public string Name { get; set; }
-        public int Code { get; set; }
-        public string Category { get; set; }
-    
-        public Product()
-        {
-            Price = 2800;
-            Name = "Non";
-            Code = 01;
-            Category = "Un mahsulotlari";
-        }
-        public Product(decimal price,string name)
+        public decimal Price { get; set; }
+        public string  Model { get; set; }
+        public string Brand { get; set; }
+
+        public Car(decimal price,string model,string brand)
         {
             Price = price;
-            Name = name;
-            Code = 01;
-            Category = "Un mahsulotlari";
+            Model = model;
+            Brand = brand;
         }
-        public Product(decimal price, string name, int code, string category)
+        public decimal CalculatePrice()
         {
-            Price=price;
-            Name=name;
-            Code=code;
-            Category=category;
+            return Price + Price * 13 / 100;
         }
         public void DisplayInfo()
         {
-            Console.WriteLine("Mahsulot : " + Name);
-            Console.WriteLine("Narxi : " + Price);
-            Console.WriteLine("Kategoriyasi : " + Category);
-            Console.WriteLine("Mahsulot kodi : " + Code);
+            Console.WriteLine("Model : " + Model);
+            Console.WriteLine("Brand : " + Brand);
+            Console.WriteLine("Price : " + Price);
             Console.WriteLine();
         }
+    } 
+
+    class Ferrari : Car
+    {
+        public Ferrari(decimal price, string model, string brand) 
+            :base(price ,model,brand)
+        {}
     }
+    class Toyota : Car
+    {
+        public Toyota(decimal price, string model, string brand) 
+            : base(price,model,brand)
+        {}
+    }
+    class Lamborgini : Car
+    {
+        public Lamborgini(decimal price, string model, string brand) 
+            : base(price,model,brand)
+        {}
+    }
+
 }
