@@ -8,9 +8,9 @@ namespace VazifaOOP2
         {
             Product product1 = new Product();
             product1.DisplayInfo();
-
+             
             Product product2 = new Product(5000,"Orbit");
-            product2.DisplayInfo();
+            product2.DisplayInfo(); 
 
             Product product3 = new Product(12000,"Pepsi");
             product3.DisplayInfo();
