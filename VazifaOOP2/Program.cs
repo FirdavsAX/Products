@@ -13,7 +13,7 @@ namespace VazifaOOP2
             car1.DisplayInfo();
             Console.WriteLine("Calculated price : " + price);
 
-
+             
             Ferrari ferrari1 = new Ferrari(12_000_000,"new model","ferrari");
             
             price = car1.CalculatePrice();
